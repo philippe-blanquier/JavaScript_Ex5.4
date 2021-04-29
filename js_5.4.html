@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Exercice 5.4</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+      <img id="myImg" src="globe_terrestre.jpg" 
+                      onclick="changeImage(this.id)" 
+                      onmouseover="increaseImage(this.id)" 
+                      width="300px" height="auto" 
+                      alt="image"
+                      >
+      <script>
+         let flipflop = true;
+         function changeImage( imageName) 
+         {
+            console.log(`changeImage ${imageName}`)
+            let image_name, alt_name;
+            if (flipflop == true)
+            {
+               flipflop= false;
+               image_name= "plongee.jpg";
+               alt_name= "Team divers";
+            }
+            else
+            {
+               flipflop= true;
+               image_name= "globe_terrestre.jpg";
+               alt_name= "Terran Globe";
+            }
+            let imgId= document.getElementById(`${imageName}`);
+            if (imgId == null)
+            {
+               alert("No image");
+            }
+            else
+            {
+               imgId.style.width= "300px";
+               imgId.style.height= "auto";
+               imgId.src= image_name;
+               imgId.alt= alt_name;
+            }
+         }
+         function increaseImage( imageName)
+         {
+            console.log("increaseImage")
+            let imgId= document.getElementById(`${imageName}`);
+            if (imgId == null)
+            {
+               alert("No image");
+            }
+            else
+            {
+               imgId.style.width= "500px";
+            }
+         }
+      </script>
+   </body>
